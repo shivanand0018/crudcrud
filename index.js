@@ -26,6 +26,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
             child.textContent = res.data[i].firstName + "-" + res.data[i].lastName + "-" + res.data[i].email;
             btn.appendChild(document.createTextNode('Delete'))
+            btn.onclick=(()=>{
+                console.log(res.data[i]._id);
+                axios.delete(`https://crudcrud.com/api/153c27c126644367ad7a94ff6a6ea000/data/${res.data[i]._id}`)
+                document.location.reload();
+            })
             var btn1 = document.createElement('button')
             btn1.appendChild(document.createTextNode('EDIT'))
             child.appendChild(btn1)
